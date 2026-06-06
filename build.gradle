@@ -1,0 +1,66 @@
+plugins {
+    id 'java'
+    id 'gg.essential.loom' version '0.10.0.4'
+    id 'dev.architectury.architectury-pack200' version '0.1.3'
+}
+
+version = '1.0.4'
+group = 'com.fakepixel'
+archivesBaseName = 'fakepixelutilities'
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+loom {
+    forge {
+        mixinConfig "mixins.dungeonrooms.json"
+        pack200Provider.set(new dev.architectury.pack200.java.Pack200Adapter())
+    }
+    mixin {
+        defaultRefmapName.set("mixins.fpu.refmap.json")
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven { url 'https://repo.spongepowered.org/maven/' }
+    maven { url 'https://repo.polyfrost.cc/releases/' }
+    maven { url 'https://maven.architectury.dev/' }
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:1.8.9"
+    mappings "de.oceanlabs.mcp:mcp_stable:22-1.8.9"
+    forge "net.minecraftforge:forge:1.8.9-11.15.1.2318-1.8.9"
+
+    implementation "org.spongepowered:mixin:0.7.11-SNAPSHOT"
+    annotationProcessor "org.spongepowered:mixin:0.8.5-SNAPSHOT"
+}
+
+processResources {
+    inputs.property "version", project.version
+    inputs.property "mcversion", "1.8.9"
+
+    filesMatching("mcmod.info") {
+        expand "version": project.version, "mcversion": "1.8.9"
+    }
+}
+
+jar {
+    archiveClassifier.set("dev")
+    manifest {
+        attributes(
+            "FMLCorePlugin": "io.github.quantizr.asm.FMLLoadingPlugin",
+            "FMLCorePluginContainsFMLMod": "true",
+            "ForceLoadAsMod": "true",
+            "MixinConfigs": "mixins.dungeonrooms.json",
+            "ModSide": "CLIENT",
+            "TweakClass": "org.spongepowered.asm.launch.MixinTweaker",
+            "TweakOrder": 0
+        )
+    }
+}
+
+remapJar {
+    input = jar.archiveFile
+}

@@ -1,0 +1,16 @@
+[
+{
+  "modid": "fpu",
+  "name": "Fakepixel Utilities",
+  "description": "Quality Of Life Mod for Fakepixel Skyblock.",
+  "version": "1.0.4",
+  "mcversion": "1.8.9",
+  "url": "https://github.com/CherryTreeTeam/FakepixelUtilities",
+  "updateUrl": "",
+  "authorList": ["CherryTree Team"],
+  "credits": "Made by CherryTree Team.",
+  "logoFile": "pack.png",
+  "screenshots": [],
+  "dependencies": []
+}
+]

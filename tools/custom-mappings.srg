@@ -1,0 +1,24 @@
+MD: net/minecraft/client/entity/EntityPlayerSP/addChatMessage (Lnet/minecraft/util/IChatComponent;)V net/minecraft/client/entity/EntityPlayerSP/func_145747_a (Lnet/minecraft/util/IChatComponent;)V
+MD: net/minecraft/entity/player/EntityPlayer/addChatMessage (Lnet/minecraft/util/IChatComponent;)V net/minecraft/entity/player/EntityPlayer/func_145747_a (Lnet/minecraft/util/IChatComponent;)V
+MD: net/minecraft/command/ICommandSender/addChatMessage (Lnet/minecraft/util/IChatComponent;)V net/minecraft/command/ICommandSender/func_145747_a (Lnet/minecraft/util/IChatComponent;)V
+MD: net/minecraft/client/entity/EntityPlayerSP/closeScreen ()V net/minecraft/client/entity/EntityPlayerSP/func_71053_j ()V
+MD: net/minecraft/entity/player/EntityPlayer/closeScreen ()V net/minecraft/entity/player/EntityPlayer/func_71053_j ()V
+MD: net/minecraft/client/Minecraft/getMinecraft ()Lnet/minecraft/client/Minecraft; net/minecraft/client/Minecraft/func_71410_x ()Lnet/minecraft/client/Minecraft;
+FD: net/minecraft/client/Minecraft/theWorld net/minecraft/client/Minecraft/field_71441_e
+FD: net/minecraft/client/Minecraft/thePlayer net/minecraft/client/Minecraft/field_71439_g
+FD: net/minecraft/client/gui/GuiButton/displayString net/minecraft/client/gui/GuiButton/field_146126_j
+FD: net/minecraft/client/gui/GuiScreen/buttonList net/minecraft/client/gui/GuiScreen/field_146292_n
+FD: net/minecraft/client/gui/GuiScreen/fontRendererObj net/minecraft/client/gui/GuiScreen/field_146289_q
+FD: net/minecraft/client/gui/inventory/GuiContainer/inventorySlots net/minecraft/client/gui/inventory/GuiContainer/field_147002_h
+FD: net/minecraft/client/Minecraft/fontRendererObj net/minecraft/client/Minecraft/field_71466_p
+FD: net/minecraft/client/Minecraft/gameSettings net/minecraft/client/Minecraft/field_71474_y
+FD: net/minecraft/client/settings/GameSettings/keyBindDrop net/minecraft/client/settings/GameSettings/field_74316_C
+FD: net/minecraft/client/settings/KeyBinding/keyCode net/minecraft/client/settings/KeyBinding/field_74312_c
+MD: net/minecraft/client/settings/KeyBinding/getKeyCode ()I net/minecraft/client/settings/KeyBinding/func_151463_i ()I
+MD: net/minecraft/client/settings/KeyBinding/setKeyBindState (IZ)V net/minecraft/client/settings/KeyBinding/func_74510_a (IZ)V
+MD: net/minecraft/client/settings/KeyBinding/isPressed ()Z net/minecraft/client/settings/KeyBinding/func_151468_f ()Z
+FD: net/minecraft/client/settings/GameSettings/keyBindSneak net/minecraft/client/settings/GameSettings/field_74311_E
+FD: net/minecraft/client/gui/inventory/GuiChest/draggedStack net/minecraft/client/gui/inventory/GuiChest/field_147012_x
+MD: net/minecraft/inventory/ContainerChest/getLowerChestInventory ()Lnet/minecraft/inventory/IInventory; net/minecraft/inventory/ContainerChest/func_85151_d ()Lnet/minecraft/inventory/IInventory;
+MD: net/minecraft/inventory/IInventory/getSizeInventory ()I net/minecraft/inventory/IInventory/func_70302_i_ ()I
+MD: net/minecraft/inventory/IInventory/getStackInSlot (I)Lnet/minecraft/item/ItemStack; net/minecraft/inventory/IInventory/func_70301_a (I)Lnet/minecraft/item/ItemStack;

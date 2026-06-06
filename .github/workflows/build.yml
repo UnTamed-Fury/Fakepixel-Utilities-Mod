@@ -1,0 +1,42 @@
+name: Build Mod
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up JDK 21
+      uses: actions/setup-java@v4
+      with:
+        java-version: '21'
+        distribution: 'temurin'
+        cache: gradle
+
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+
+    - name: Build with Gradle
+      run: ./gradlew build --no-daemon
+
+    - name: Remap to Production (SRG)
+      run: |
+        java -jar tools/SpecialSource.jar --in-jar build/libs/fakepixelutilities-1.0.4-dev.jar --out-jar build/libs/fakepixelutilities-1.0.4-step1.jar --srg-in tools/mappings-named-srg.srg
+        java -jar tools/SpecialSource.jar --in-jar build/libs/fakepixelutilities-1.0.4-step1.jar --out-jar build/libs/fakepixelutilities-1.0.4.jar --srg-in tools/custom-mappings.srg
+
+    - name: Verify SRG Mapping
+      run: |
+        javap -c -cp build/libs/fakepixelutilities-1.0.4.jar com.fakepixel.fpu.ChatListener | grep "addChatMessage" && exit 1 || echo "Verified: addChatMessage remapped."
+        javap -c -cp build/libs/fakepixelutilities-1.0.4.jar com.fakepixel.fpu.FPUSafeModeListener | grep "closeScreen" && exit 1 || echo "Verified: closeScreen remapped."
+
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: Fakepixel-Utilities-Mod-JAR
+        path: build/libs/fakepixelutilities-1.0.4.jar

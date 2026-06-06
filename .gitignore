@@ -1,0 +1,32 @@
+# Gradle
+.gradle
+build/
+!/src/main/resources/mcmod.info
+gradle-app.setting
+!gradle-wrapper.jar
+.gradletasknamecache
+
+# IDE - IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+# IDE - VS Code
+.vscode/
+
+# Minecraft Modding
+run/
+**/mixins.fpu.refmap.json
+**/mixins.dungeonrooms.refmap.json
+
+# Java / OS
+*.class
+*.log
+*.swp
+.DS_Store
+Thumbs.db
+
+# Project Specific
+bin/

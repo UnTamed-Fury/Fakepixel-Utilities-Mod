@@ -1,0 +1,9 @@
+{
+  "compatibilityLevel": "JAVA_8",
+  "package": "com.fakepixel.fpu.mixins",
+  "refmap": "mixins.dungeonrooms.refmap.json",
+  "mixins": [
+    "MixinNetworkManager"
+  ],
+  "verbose": true
+}
